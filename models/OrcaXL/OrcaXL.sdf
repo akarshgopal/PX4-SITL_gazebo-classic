@@ -5,7 +5,7 @@
       <pose>0 0 0 0 0 0</pose>
       <inertial>
         <pose>0 0 0.5 0 0 0</pose>
-        <mass>50</mass>
+        <mass>72</mass>
         <inertia>
           <ixx>10.3</ixx>
           <ixy>0</ixy>
@@ -102,7 +102,7 @@
 
 
     <link name='front_tilt'>
-      <pose>1.05 0 0.3 0 0 0</pose>
+      <pose>1.05 0 0.3 0 -1.5707963268 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>0.05</mass>
@@ -719,7 +719,7 @@
     </joint>
 
     <link name='rear_tilt'>
-      <pose>-0.7 0 0.8 0 0 0</pose>
+      <pose>-0.7 0 0.8 0 -1.5707963268 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>0.05</mass>
@@ -1508,7 +1508,7 @@
     <joint name='front_right_elevon_joint' type='revolute'>
       <parent>front_right_wing</parent>
       <child>front_right_elevon</child>
-      <pose>-0.18 -0.6 -0.005 0 0 -0.265</pose>
+        <pose>0 00 0 0.00 0 0.0</pose>
       <axis>
         <xyz>0 1 0</xyz>
         <limit>
@@ -1560,7 +1560,7 @@
     <joint name='rear_right_elevon_joint' type='revolute'>
       <parent>rear_right_wing</parent>
       <child>rear_right_elevon</child>
-      <pose>-0.18 -0.6 -0.005 0 0 0</pose>
+        <pose>0 00 0 0.00 0 0.0</pose>
       <axis>
         <xyz>0 1 0</xyz>
         <limit>
@@ -1579,6 +1579,21 @@
       </physics>
     </joint>
 
+    <link name="rudder">
+      <inertial>
+        <mass>0.00000001</mass>
+        <inertia>
+          <ixx>0.000001</ixx>
+          <ixy>0.0</ixy>
+          <iyy>0.000001</iyy>
+          <ixz>0.0</ixz>
+          <iyz>0.0</iyz>
+          <izz>0.000001</izz>
+        </inertia>
+        <pose>-0.8 0 0.5 0 0 0 </pose>
+      </inertial>
+    </link>
+
     <include>
       <uri>model://gps</uri>
       <pose>0 0 0 0 0 0</pose>
@@ -1592,7 +1607,7 @@
 
     <plugin name="front_left_wing" filename="libLiftDragPlugin.so">
       <a0>0.05984281113</a0>
-      <cla>9.5</cla>
+      <cla>7</cla>
       <cda>0.6417112299</cda>
       <cma>0.0</cma>
       <alpha_stall>0.3391428111</alpha_stall>
@@ -1600,7 +1615,7 @@
       <cda_stall>-0.9233984055</cda_stall>
       <cma_stall>0</cma_stall>
       <cp>0 0.4 0</cp>
-      <area>0.2</area>
+      <area>0.18</area>
       <air_density>1.2041</air_density>
       <forward>1 0 0</forward>
       <upward>0 0 1</upward>
@@ -1608,14 +1623,14 @@
       <control_joint_name>
         front_left_elevon_joint
       </control_joint_name>
-      <control_joint_rad_to_cl>-1.0</control_joint_rad_to_cl>
+      <control_joint_rad_to_cl>1.0</control_joint_rad_to_cl>
       <robotNamespace></robotNamespace>
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
 
     <plugin name="front_right_wing" filename="libLiftDragPlugin.so">
       <a0>0.05984281113</a0>
-      <cla>9.5</cla>
+      <cla>7</cla>
       <cda>0.6417112299</cda>
       <cma>0.0</cma>
       <alpha_stall>0.3391428111</alpha_stall>
@@ -1623,7 +1638,7 @@
       <cda_stall>-0.9233984055</cda_stall>
       <cma_stall>0</cma_stall>
       <cp>0 -0.4 0.0</cp>
-      <area>0.2</area>
+      <area>0.18</area>
       <air_density>1.2041</air_density>
       <forward>1 0 0</forward>
       <upward>0 0 1</upward>
@@ -1631,13 +1646,13 @@
       <control_joint_name>
         front_right_elevon_joint
       </control_joint_name>
-      <control_joint_rad_to_cl>-1.0</control_joint_rad_to_cl>
+      <control_joint_rad_to_cl>1.0</control_joint_rad_to_cl>
       <robotNamespace></robotNamespace>
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
     <plugin name="rear_left_wing" filename="libLiftDragPlugin.so">
       <a0>0.05984281113</a0>
-      <cla>9.5</cla>
+      <cla>7</cla>
       <cda>0.6417112299</cda>
       <cma>0.0</cma>
       <alpha_stall>0.3391428111</alpha_stall>
@@ -1645,7 +1660,7 @@
       <cda_stall>-0.9233984055</cda_stall>
       <cma_stall>0</cma_stall>
       <cp>0 0.6 0</cp>
-      <area>0.22</area>
+      <area>0.21</area>
       <air_density>1.2041</air_density>
       <forward>1 0 0</forward>
       <upward>0 0 1</upward>
@@ -1653,13 +1668,13 @@
       <control_joint_name>
         rear_left_elevon_joint
       </control_joint_name>
-      <control_joint_rad_to_cl>-1.0</control_joint_rad_to_cl>
+      <control_joint_rad_to_cl>1.0</control_joint_rad_to_cl>
       <robotNamespace></robotNamespace>
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
     <plugin name="rear_right_wing" filename="libLiftDragPlugin.so">
       <a0>0.05984281113</a0>
-      <cla>9.5</cla>
+      <cla>7</cla>
       <cda>0.6417112299</cda>
       <cma>0.0</cma>
       <alpha_stall>0.3391428111</alpha_stall>
@@ -1667,7 +1682,7 @@
       <cda_stall>-0.9233984055</cda_stall>
       <cma_stall>0</cma_stall>
       <cp>0 -0.6 0</cp>
-      <area>0.22</area>
+      <area>0.21</area>
       <air_density>1.2041</air_density>
       <forward>1 0 0</forward>
       <upward>0 0 1</upward>
@@ -1675,7 +1690,25 @@
       <control_joint_name>
         rear_right_elevon_joint
       </control_joint_name>
-      <control_joint_rad_to_cl>-1.0</control_joint_rad_to_cl>
+      <control_joint_rad_to_cl>1.0</control_joint_rad_to_cl>
+      <robotNamespace></robotNamespace>
+      <windSubTopic>world_wind</windSubTopic>
+    </plugin>
+    <plugin name="rudder" filename="libLiftDragPlugin.so">
+      <a0>0.0</a0>
+      <cla>4.752798721</cla>
+      <cda>2.6417112299</cda>
+      <cma>0.0</cma>
+      <alpha_stall>0.3391428111</alpha_stall>
+      <cla_stall>-3.85</cla_stall>
+      <cda_stall>-0.9233984055</cda_stall>
+      <cma_stall>0</cma_stall>
+      <cp>-0.3 0 0.05</cp>
+      <area>0.2</area>
+      <air_density>1.2041</air_density>
+      <forward>1 0 0</forward>
+      <upward>0 1 0</upward>
+      <link_name>base_link</link_name>
       <robotNamespace></robotNamespace>
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
