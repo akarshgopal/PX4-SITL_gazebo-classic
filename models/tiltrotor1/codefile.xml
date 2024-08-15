@@ -1,0 +1,67 @@
+
+      <visual name='Aft_wing_left'>
+        <pose>0.039 0.353 0.319 1.57079633 0 1.57079633</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://OrcaXL/meshes/AftWing_Left.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/DarkGrey</name>
+            <uri>__default__</uri>
+          </script>
+        </material>
+      </visual>
+      <visual name='Aft_wing_right'>
+        <pose>0.039 -1.187 0.319 1.57079633 0 1.57079633</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://OrcaXL/meshes/AftWing_Right.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/DarkGrey</name>
+            <uri>__default__</uri>
+          </script>
+        </material>
+      </visual>
+
+       <visual name='Front_wing_left'>
+        <pose>1.741 0.103 -0.185 1.57079633 0 1.57079633</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://OrcaXL/meshes/FrontWing_Left.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/DarkGrey</name>
+            <uri>__default__</uri>
+          </script>
+        </material>
+      </visual>
+
+       <visual name='Front_wing_right'>
+        <pose>1.741 -0.938 -0.185 1.57079633 0 1.57079633</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://OrcaXL/meshes/FrontWing_Right.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/DarkGrey</name>
+            <uri>__default__</uri>
+          </script>
+        </material>
+      </visual>
+
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <self_collide>0</self_collide>
