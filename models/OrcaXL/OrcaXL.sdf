@@ -5,7 +5,7 @@
       <pose>0 0 0 0 0 0</pose>
       <inertial>
         <pose>0 0 0.5 0 0 0</pose>
-        <mass>72</mass>
+        <mass>50</mass>
         <inertia>
           <ixx>10.3</ixx>
           <ixy>0</ixy>
@@ -1599,12 +1599,12 @@
       <cla_stall>0</cla_stall>
       <cda_stall>-0.9233984055</cda_stall>
       <cma_stall>0</cma_stall>
-      <cp>-0.075 0.3 0.05</cp>
+      <cp>0 0.4 0</cp>
       <area>0.2</area>
       <air_density>1.2041</air_density>
       <forward>1 0 0</forward>
       <upward>0 0 1</upward>
-      <link_name>front_left_wing</link_name>
+      <link_name>front_tilt</link_name>
       <control_joint_name>
         front_left_elevon_joint
       </control_joint_name>
@@ -1622,12 +1622,12 @@
       <cla_stall>0</cla_stall>
       <cda_stall>-0.9233984055</cda_stall>
       <cma_stall>0</cma_stall>
-      <cp>-0.075 -0.3 0.05</cp>
+      <cp>0 -0.4 0.0</cp>
       <area>0.2</area>
       <air_density>1.2041</air_density>
       <forward>1 0 0</forward>
       <upward>0 0 1</upward>
-      <link_name>front_right_wing</link_name>
+      <link_name>front_tilt</link_name>
       <control_joint_name>
         front_right_elevon_joint
       </control_joint_name>
@@ -1644,12 +1644,12 @@
       <cla_stall>0</cla_stall>
       <cda_stall>-0.9233984055</cda_stall>
       <cma_stall>0</cma_stall>
-      <cp>-0.15 0.3 0.05</cp>
+      <cp>0 0.6 0</cp>
       <area>0.22</area>
       <air_density>1.2041</air_density>
       <forward>1 0 0</forward>
       <upward>0 0 1</upward>
-      <link_name>rear_left_wing</link_name>
+      <link_name>rear_tilt</link_name>
       <control_joint_name>
         rear_left_elevon_joint
       </control_joint_name>
@@ -1666,12 +1666,12 @@
       <cla_stall>0</cla_stall>
       <cda_stall>-0.9233984055</cda_stall>
       <cma_stall>0</cma_stall>
-      <cp>-0.15 -0.3 0.05</cp>
+      <cp>0 -0.6 0</cp>
       <area>0.22</area>
       <air_density>1.2041</air_density>
       <forward>1 0 0</forward>
       <upward>0 0 1</upward>
-      <link_name>rear_right_wing</link_name>
+      <link_name>rear_tilt</link_name>
       <control_joint_name>
         rear_right_elevon_joint
       </control_joint_name>
