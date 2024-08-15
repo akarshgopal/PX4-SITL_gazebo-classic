@@ -1,26 +1,25 @@
-<!-- DO NOT EDIT: Generated from standard_vtol.sdf.jinja -->
 <sdf version='1.5'>
   <model name='OrcaXL'>
-    <pose>0 0 0.246 0 0 0</pose>
+    <pose>0 0 0 0 0 0</pose>
     <link name='base_link'>
       <pose>0 0 0 0 0 0</pose>
       <inertial>
-        <pose>0 0 0 0 0 0</pose>
-        <mass>25</mass>
+        <pose>0 0 0.5 0 0 0</pose>
+        <mass>60</mass>
         <inertia>
-          <ixx>1.6</ixx>
+          <ixx>10.3</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>1.6</iyy>
+          <iyy>10.3</iyy>
           <iyz>0</iyz>
-          <izz>3.2</izz>
+          <izz>10.6</izz>
         </inertia>
       </inertial>
       <collision name='base_link_collision'>
-        <pose>-0.01 0 -0.08 0 0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <geometry>
           <box>
-            <size>0.55 2.144 0.05</size>
+            <size>2 3 0.3</size>
           </box>
         </geometry>
         <surface>
@@ -57,7 +56,7 @@
       <self_collide>0</self_collide>
     </link>
     <link name='OrcaXL/imu_link'>
-      <pose>0 0 0 0 0 0</pose>
+      <pose>0 0 0.5 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>0.015</mass>
@@ -70,6 +69,7 @@
           <izz>1e-05</izz>
         </inertia>
       </inertial>
+
     </link>
     <joint name='OrcaXL/imu_joint' type='revolute'>
       <child>OrcaXL/imu_link</child>
@@ -89,9 +89,10 @@
         <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
     </joint>
+
     <include>
       <uri>model://airspeed</uri>
-      <pose>0 0 0 0 0 0</pose>
+      <pose>0 0 0.5 0 0 0</pose>
       <name>airspeed</name>
     </include>
     <joint name='airspeed_joint' type='fixed'>
@@ -139,8 +140,8 @@
       <axis>
         <xyz>0 1 0</xyz>
         <limit>
-          <lower>-1.5707963268</lower>
-          <upper>1.5707963268</upper>
+          <lower>-1.5</lower>
+          <upper>1.5</upper>
         </limit>
         <dynamics>
           <friction>1.0</friction>
@@ -151,7 +152,7 @@
       </axis>
     </joint>
 
-    <link name='front_wing_left'>
+    <link name='front_right_wing'>
       <pose>1.05 -0.4 0.35 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
@@ -165,7 +166,7 @@
           <izz>0.0167604</izz>
         </inertia>
       </inertial>
-      <collision name='front_wing_left_collision'>
+      <collision name='front_right_wing_collision'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <cylinder>
@@ -182,7 +183,7 @@
           </friction>
         </surface>
       </collision>
-      <visual name='front_wing_left_visual'>
+      <visual name='front_right_wing_visual'>
         <pose>0 0.4 0 0 0 1.5707963268</pose>
         <geometry>
           <mesh>
@@ -201,13 +202,13 @@
       <velocity_decay/>
       <self_collide>0</self_collide>
     </link>
-    <joint name='front_wing_left_joint' type='fixed'>
-      <child>front_wing_left</child>
+    <joint name='front_right_wing_joint' type='fixed'>
+      <child>front_right_wing</child>
       <parent>front_tilt</parent>
     </joint>
 
-    <link name='front_wing_right'>
-      <pose>1.05 1.2 0.35 0 0 0</pose>
+    <link name='front_left_wing'>
+      <pose>1.05 0.4 0.35 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>0.05</mass>
@@ -220,7 +221,7 @@
           <izz>0.0167604</izz>
         </inertia>
       </inertial>
-      <collision name='front_wing_right_collision'>
+      <collision name='front_left_wing_collision'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <cylinder>
@@ -237,8 +238,8 @@
           </friction>
         </surface>
       </collision>
-      <visual name='front_wing_right_visual'>
-        <pose>0 0.45 0 0 0 1.5707963268</pose>
+      <visual name='front_left_wing_visual'>
+        <pose>0 1.25 0 0 0 1.5707963268</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -256,8 +257,8 @@
       <velocity_decay/>
       <self_collide>0</self_collide>
     </link>
-    <joint name='front_wing_right_joint' type='fixed'>
-      <child>front_wing_right</child>
+    <joint name='front_left_wing_joint' type='fixed'>
+      <child>front_left_wing</child>
       <parent>front_tilt</parent>
     </joint>
 
@@ -352,7 +353,7 @@
         <geometry>
           <mesh>
             <scale>1.4 1.4 1</scale>
-            <uri>model://OrcaXL/meshes/iris_prop_ccw.dae</uri>
+            <uri>model://OrcaXL/meshes/iris_prop_cw.dae</uri>
           </mesh>
         </geometry>
         <material>
@@ -598,7 +599,7 @@
         <geometry>
           <mesh>
             <scale>1.4 1.4 1</scale>
-            <uri>model://OrcaXL/meshes/iris_prop_ccw.dae</uri>
+            <uri>model://OrcaXL/meshes/iris_prop_cw.dae</uri>
           </mesh>
         </geometry>
         <material>
@@ -789,8 +790,8 @@
       <axis>
         <xyz>0 1 0</xyz>
         <limit>
-          <lower>-1.5707963268</lower>
-          <upper>1.5707963268</upper>
+          <lower>-1.5</lower>
+          <upper>1.5</upper>
         </limit>
         <dynamics>
           <friction>1.0</friction>
@@ -801,8 +802,8 @@
       </axis>
     </joint>
 
-      <link name='rear_wing_left'>
-      <pose>-0.7 -0.4 0.55 0 0 0</pose>
+      <link name='rear_right_wing'>
+      <pose>-0.7 -0.4 0.65 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>0.05</mass>
@@ -815,7 +816,7 @@
           <izz>0.0167604</izz>
         </inertia>
       </inertial>
-      <collision name='rear_wing_left_collision'>
+      <collision name='rear_right_wing_collision'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <cylinder>
@@ -832,8 +833,8 @@
           </friction>
         </surface>
       </collision>
-      <visual name='rear_wing_left_visual'>
-        <pose>0.5 0.4 2 0 0 1.5707963268</pose>
+      <visual name='rear_right_wing_visual'>
+        <pose>0.5 0.4 1.9 0 0 1.5707963268</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -851,13 +852,13 @@
       <velocity_decay/>
       <self_collide>0</self_collide>
     </link>
-    <joint name='rear_wing_left_joint' type='fixed'>
-      <child>rear_wing_left</child>
+    <joint name='rear_right_wing_joint' type='fixed'>
+      <child>rear_right_wing</child>
       <parent>rear_tilt</parent>
     </joint>
 
-    <link name='rear_wing_right'>
-      <pose>-0.7 1.45 0.55 0 0 0</pose>
+    <link name='rear_left_wing'>
+      <pose>-0.7 0.4 0.65 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>0.05</mass>
@@ -870,7 +871,7 @@
           <izz>0.0167604</izz>
         </inertia>
       </inertial>
-      <collision name='rear_wing_right_collision'>
+      <collision name='rear_left_wing_collision'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <cylinder>
@@ -887,8 +888,8 @@
           </friction>
         </surface>
       </collision>
-      <visual name='rear_wing_right_visual'>
-        <pose>0.5 0.45 2 0 0 1.5707963268</pose>
+      <visual name='rear_left_wing_visual'>
+        <pose>0.5 1.5 1.9 0 0 1.5707963268</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -906,8 +907,8 @@
       <velocity_decay/>
       <self_collide>0</self_collide>
     </link>
-    <joint name='rear_wing_right_joint' type='fixed'>
-      <child>rear_wing_right</child>
+    <joint name='rear_left_wing_joint' type='fixed'>
+      <child>rear_left_wing</child>
       <parent>rear_tilt</parent>
     </joint>
 
@@ -1002,7 +1003,7 @@
         <geometry>
           <mesh>
             <scale>1.4 1.4 1</scale>
-            <uri>model://OrcaXL/meshes/iris_prop_ccw.dae</uri>
+            <uri>model://OrcaXL/meshes/iris_prop_cw.dae</uri>
           </mesh>
         </geometry>
         <material>
@@ -1125,7 +1126,7 @@
         <geometry>
           <mesh>
             <scale>1.4 1.4 1</scale>
-            <uri>model://OrcaXL/meshes/iris_prop_cw.dae</uri>
+            <uri>model://OrcaXL/meshes/iris_prop_ccw.dae</uri>
           </mesh>
         </geometry>
         <material>
@@ -1401,7 +1402,8 @@
       </axis>
     </joint>
 
-    <link name="left_elevon">
+    <link name="front_left_elevon">
+      <pose>1.05 0.65 0.15 0 0 0</pose>
       <inertial>
         <mass>0.00000001</mass>
         <inertia>
@@ -1412,14 +1414,14 @@
           <iyz>0.0</iyz>
           <izz>0.000001</izz>
         </inertia>
-        <pose>0 0.3 0 0.00 0 0.0</pose>
+        <pose>0 0 0 0 0 0</pose>
       </inertial>
-      <visual name='left_elevon_visual'>
-        <pose>-0.105 0.004 -0.034 1.5707963268 0 3.1415926536</pose>
+      <visual name='front_left_elevon_visual'>
+        <pose>0 0.45 0 0 0 1.5707963268</pose>
         <geometry>
           <mesh>
-            <scale>0.001 0.001 0.001</scale>
-            <uri>model://OrcaXL/meshes/x8_elevon_left.dae</uri>
+            <scale>0.3 0.5 0.3</scale>
+            <uri>model://OrcaXL/meshes/front_wing.dae</uri>
           </mesh>
         </geometry>
         <material>
@@ -1429,68 +1431,12 @@
           </script>
         </material>
       </visual>
+
     </link>
-    <link name="right_elevon">
-      <inertial>
-        <mass>0.00000001</mass>
-        <inertia>
-          <ixx>0.000001</ixx>
-          <ixy>0.0</ixy>
-          <iyy>0.000001</iyy>
-          <ixz>0.0</ixz>
-          <iyz>0.0</iyz>
-          <izz>0.000001</izz>
-        </inertia>
-        <pose>0 -0.6 0 0.00 0 0.0</pose>
-      </inertial>
-      <visual name='right_elevon_visual'>
-        <pose>0.281 -1.032 -0.034 1.5707963268 0 3.1415926536</pose>
-        <geometry>
-          <mesh>
-            <scale>0.001 0.001 0.001</scale>
-            <uri>model://OrcaXL/meshes/x8_elevon_right.dae</uri>
-          </mesh>
-        </geometry>
-        <material>
-          <script>
-            <name>Gazebo/Blue</name>
-            <uri>__default__</uri>
-          </script>
-        </material>
-      </visual>
-    </link>
-    <link name="elevator">
-      <inertial>
-        <mass>0.00000001</mass>
-        <inertia>
-          <ixx>0.000001</ixx>
-          <ixy>0.0</ixy>
-          <iyy>0.000001</iyy>
-          <ixz>0.0</ixz>
-          <iyz>0.0</iyz>
-          <izz>0.000001</izz>
-        </inertia>
-        <pose> -0.5 0 0 0.00 0 0.0</pose>
-      </inertial>
-    </link>
-    <link name="rudder">
-      <inertial>
-        <mass>0.00000001</mass>
-        <inertia>
-          <ixx>0.000001</ixx>
-          <ixy>0.0</ixy>
-          <iyy>0.000001</iyy>
-          <ixz>0.0</ixz>
-          <iyz>0.0</iyz>
-          <izz>0.000001</izz>
-        </inertia>
-        <pose>-0.5 0 0.05 0 0 0 </pose>
-      </inertial>
-    </link>
-    <joint name='left_elevon_joint' type='revolute'>
-      <parent>base_link</parent>
-      <child>left_elevon</child>
-      <pose>-0.18 0.6 -0.005 0 0 0.265</pose>
+    <joint name='front_left_elevon_joint' type='revolute'>
+      <parent>front_left_wing</parent>
+      <child>front_left_elevon</child>
+      <pose>0 0 0 0 0 0</pose>
       <axis>
         <xyz>0 1 0</xyz>
         <limit>
@@ -1508,9 +1454,94 @@
         </ode>
       </physics>
     </joint>
-    <joint name='right_elevon_joint' type='revolute'>
-      <parent>base_link</parent>
-      <child>right_elevon</child>
+
+    <link name="rear_left_elevon">
+      <pose>-0.7 0.85 0.65 0 0 0</pose>
+      <inertial>
+        <mass>0.00000001</mass>
+        <inertia>
+          <ixx>0.000001</ixx>
+          <ixy>0.0</ixy>
+          <iyy>0.000001</iyy>
+          <ixz>0.0</ixz>
+          <iyz>0.0</iyz>
+          <izz>0.000001</izz>
+        </inertia>
+        <pose>0 0 0 0 0 0</pose>
+      </inertial>
+      <visual name='rear_left_elevon_visual'>
+        <pose>0.25 0.5 0.5 0 0 1.5707963268</pose>
+        <geometry>
+          <mesh>
+            <scale>0.3 0.5 0.3</scale>
+            <uri>model://OrcaXL/meshes/rear_wing.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Blue</name>
+            <uri>__default__</uri>
+          </script>
+        </material>
+      </visual>
+    </link>
+    <joint name='rear_left_elevon_joint' type='revolute'>
+      <parent>rear_left_wing</parent>
+      <child>rear_left_elevon</child>
+      <pose>0 0 0 0 0 0</pose>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <!-- -30/+30 deg. -->
+          <lower>-0.53</lower>
+          <upper>0.53</upper>
+        </limit>
+        <dynamics>
+          <damping>1.000</damping>
+        </dynamics>
+      </axis>
+      <physics>
+        <ode>
+          <implicit_spring_damper>1</implicit_spring_damper>
+        </ode>
+      </physics>
+    </joint>
+
+
+    <link name="front_right_elevon">
+      <pose>1.05 -1.0 0.15 0 0 0</pose>
+      <inertial>
+        <mass>0.00000001</mass>
+        <inertia>
+          <ixx>0.000001</ixx>
+          <ixy>0.0</ixy>
+          <iyy>0.000001</iyy>
+          <ixz>0.0</ixz>
+          <iyz>0.0</iyz>
+          <izz>0.000001</izz>
+        </inertia>
+        <pose>0 00 0 0.00 0 0.0</pose>
+      </inertial>
+      <visual name='front_right_elevon_visual'>
+        <pose>0 0.4 0 0 0 1.5707963268</pose>
+        <geometry>
+          <mesh>
+            <scale>0.3 0.5 0.3</scale>
+            <uri>model://OrcaXL/meshes/front_wing.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Blue</name>
+            <uri>__default__</uri>
+          </script>
+        </material>
+      </visual>
+
+    </link>
+    <joint name='front_right_elevon_joint' type='revolute'>
+      <parent>front_right_wing</parent>
+      <child>front_right_elevon</child>
       <pose>-0.18 -0.6 -0.005 0 0 -0.265</pose>
       <axis>
         <xyz>0 1 0</xyz>
@@ -1529,10 +1560,41 @@
         </ode>
       </physics>
     </joint>
-    <joint name='elevator_joint' type='revolute'>
-      <parent>base_link</parent>
-      <child>elevator</child>
-      <pose> -0.5 0 0 0 0 0</pose>
+    
+    <link name="rear_right_elevon">
+      <pose>-0.7 -0.85 0.65 0 0 0</pose>
+      <inertial>
+        <mass>0.00000001</mass>
+        <inertia>
+          <ixx>0.000001</ixx>
+          <ixy>0.0</ixy>
+          <iyy>0.000001</iyy>
+          <ixz>0.0</ixz>
+          <iyz>0.0</iyz>
+          <izz>0.000001</izz>
+        </inertia>
+        <pose>-0.7 -0.6 0.8 0.00 0 0.0</pose>
+      </inertial>
+      <visual name='rear_right_elevon_visual'>
+        <pose>0.25 0.1 0.5 0 0 1.5707963268</pose>
+        <geometry>
+          <mesh>
+            <scale>0.3 0.5 0.3</scale>
+            <uri>model://OrcaXL/meshes/rear_wing.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Blue</name>
+            <uri>__default__</uri>
+          </script>
+        </material>
+      </visual>
+    </link>
+    <joint name='rear_right_elevon_joint' type='revolute'>
+      <parent>rear_right_wing</parent>
+      <child>rear_right_elevon</child>
+      <pose>-0.18 -0.6 -0.005 0 0 0</pose>
       <axis>
         <xyz>0 1 0</xyz>
         <limit>
@@ -1550,27 +1612,7 @@
         </ode>
       </physics>
     </joint>
-    <joint name='rudder_joint' type='revolute'>
-      <parent>base_link</parent>
-      <child>rudder</child>
-      <pose>-0.5 0 0.05 0.00 0 0.0</pose>
-      <axis>
-        <xyz>1 0 0</xyz>
-        <limit>
-          <!-- -30/+30 deg. -->
-          <lower>-0.01</lower>
-          <upper>0.01</upper>
-        </limit>
-        <dynamics>
-          <damping>1.000</damping>
-        </dynamics>
-      </axis>
-      <physics>
-        <ode>
-          <implicit_spring_damper>1</implicit_spring_damper>
-        </ode>
-      </physics>
-    </joint>
+
     <include>
       <uri>model://gps</uri>
       <pose>0 0 0 0 0 0</pose>
@@ -1580,144 +1622,109 @@
       <child>gps::link</child>
       <parent>base_link</parent>
     </joint>
-    <plugin name="left_wing_front" filename="libLiftDragPlugin.so">
+
+
+    <plugin name="front_left_wing" filename="libLiftDragPlugin.so">
       <a0>0.05984281113</a0>
-      <cla>4.752798721</cla>
+      <cla>9.5</cla>
       <cda>0.6417112299</cda>
       <cma>0.0</cma>
       <alpha_stall>0.3391428111</alpha_stall>
-      <cla_stall>-3.85</cla_stall>
+      <cla_stall>0</cla_stall>
       <cda_stall>-0.9233984055</cda_stall>
       <cma_stall>0</cma_stall>
       <cp>-0.05 0.3 0.05</cp>
-      <area>0.5</area>
+      <area>0.22</area>
       <air_density>1.2041</air_density>
       <forward>1 0 0</forward>
       <upward>0 0 1</upward>
-      <link_name>base_link</link_name>
+      <link_name>front_left_wing</link_name>
       <control_joint_name>
-        left_elevon_joint
+        front_left_elevon_joint
       </control_joint_name>
       <control_joint_rad_to_cl>-1.0</control_joint_rad_to_cl>
       <robotNamespace></robotNamespace>
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
-    <plugin name="right_wing_front" filename="libLiftDragPlugin.so">
+
+    <plugin name="front_right_wing" filename="libLiftDragPlugin.so">
       <a0>0.05984281113</a0>
-      <cla>4.752798721</cla>
+      <cla>9.5</cla>
       <cda>0.6417112299</cda>
       <cma>0.0</cma>
       <alpha_stall>0.3391428111</alpha_stall>
-      <cla_stall>-3.85</cla_stall>
+      <cla_stall>0</cla_stall>
       <cda_stall>-0.9233984055</cda_stall>
       <cma_stall>0</cma_stall>
       <cp>-0.05 -0.3 0.05</cp>
-      <area>0.5</area>
+      <area>0.22</area>
       <air_density>1.2041</air_density>
       <forward>1 0 0</forward>
       <upward>0 0 1</upward>
-      <link_name>base_link</link_name>
+      <link_name>front_right_wing</link_name>
       <control_joint_name>
-        right_elevon_joint
+        front_right_elevon_joint
       </control_joint_name>
       <control_joint_rad_to_cl>-1.0</control_joint_rad_to_cl>
       <robotNamespace></robotNamespace>
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
-    <plugin name="left_wing_rear" filename="libLiftDragPlugin.so">
+    <plugin name="rear_left_wing" filename="libLiftDragPlugin.so">
       <a0>0.05984281113</a0>
-      <cla>4.752798721</cla>
+      <cla>9.5</cla>
       <cda>0.6417112299</cda>
       <cma>0.0</cma>
       <alpha_stall>0.3391428111</alpha_stall>
-      <cla_stall>-3.85</cla_stall>
+      <cla_stall>0</cla_stall>
       <cda_stall>-0.9233984055</cda_stall>
       <cma_stall>0</cma_stall>
       <cp>-0.05 0.3 0.05</cp>
-      <area>0.5</area>
+      <area>0.2</area>
       <air_density>1.2041</air_density>
       <forward>1 0 0</forward>
       <upward>0 0 1</upward>
-      <link_name>base_link</link_name>
+      <link_name>rear_left_wing</link_name>
       <control_joint_name>
-        left_elevon_joint
+        rear_left_elevon_joint
       </control_joint_name>
       <control_joint_rad_to_cl>-1.0</control_joint_rad_to_cl>
       <robotNamespace></robotNamespace>
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
-    <plugin name="right_wing_rear" filename="libLiftDragPlugin.so">
+    <plugin name="rear_right_wing" filename="libLiftDragPlugin.so">
       <a0>0.05984281113</a0>
-      <cla>4.752798721</cla>
+      <cla>9.5</cla>
       <cda>0.6417112299</cda>
       <cma>0.0</cma>
       <alpha_stall>0.3391428111</alpha_stall>
-      <cla_stall>-3.85</cla_stall>
+      <cla_stall>0</cla_stall>
       <cda_stall>-0.9233984055</cda_stall>
       <cma_stall>0</cma_stall>
       <cp>-0.05 -0.3 0.05</cp>
-      <area>0.5</area>
+      <area>0.2</area>
       <air_density>1.2041</air_density>
       <forward>1 0 0</forward>
       <upward>0 0 1</upward>
-      <link_name>base_link</link_name>
+      <link_name>rear_right_wing</link_name>
       <control_joint_name>
-        right_elevon_joint
+        rear_right_elevon_joint
       </control_joint_name>
       <control_joint_rad_to_cl>-1.0</control_joint_rad_to_cl>
       <robotNamespace></robotNamespace>
       <windSubTopic>world_wind</windSubTopic>
     </plugin>
-    <plugin name="elevator" filename="libLiftDragPlugin.so">
-      <a0>-0.2</a0>
-      <cla>4.752798721</cla>
-      <cda>0.6417112299</cda>
-      <cma>0.0</cma>
-      <alpha_stall>0.3391428111</alpha_stall>
-      <cla_stall>-3.85</cla_stall>
-      <cda_stall>-0.9233984055</cda_stall>
-      <cma_stall>0</cma_stall>
-      <cp>-0.5 0 0</cp>
-      <area>0.01</area>
-      <air_density>1.2041</air_density>
-      <forward>1 0 0</forward>
-      <upward>0 0 1</upward>
-      <link_name>base_link</link_name>
-      <control_joint_name>
-        elevator_joint
-      </control_joint_name>
-      <control_joint_rad_to_cl>-12.0</control_joint_rad_to_cl>
-      <robotNamespace></robotNamespace>
-      <windSubTopic>world_wind</windSubTopic>
-    </plugin>
-    <plugin name="rudder" filename="libLiftDragPlugin.so">
-      <a0>0.0</a0>
-      <cla>4.752798721</cla>
-      <cda>0.6417112299</cda>
-      <cma>0.0</cma>
-      <alpha_stall>0.3391428111</alpha_stall>
-      <cla_stall>-3.85</cla_stall>
-      <cda_stall>-0.9233984055</cda_stall>
-      <cma_stall>0</cma_stall>
-      <cp>-0.5 0 0.05</cp>
-      <area>0.02</area>
-      <air_density>1.2041</air_density>
-      <forward>1 0 0</forward>
-      <upward>0 1 0</upward>
-      <link_name>base_link</link_name>
-      <robotNamespace></robotNamespace>
-      <windSubTopic>world_wind</windSubTopic>
-    </plugin>
+
+
     <plugin name='front_left_out_motor_model' filename='libgazebo_motor_model.so'>
       <robotNamespace></robotNamespace>
       <jointName>rotor_0_joint</jointName>
       <linkName>rotor_0</linkName>
-      <turningDirection>ccw</turningDirection>
+      <turningDirection>cw</turningDirection>
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
       <maxRotVelocity>1500</maxRotVelocity>
-      <motorConstant>8e-05</motorConstant>
-      <momentConstant>0.47</momentConstant>
+      <motorConstant>1.2e-04</motorConstant>
+      <momentConstant>0.22</momentConstant>
       <commandSubTopic>/gazebo/command/motor_speed</commandSubTopic>
       <motorNumber>0</motorNumber>
       <rotorDragCoefficient>0.0000806428</rotorDragCoefficient>
@@ -1729,12 +1736,12 @@
       <robotNamespace></robotNamespace>
       <jointName>rotor_1_joint</jointName>
       <linkName>rotor_1</linkName>
-      <turningDirection>cw</turningDirection>
+      <turningDirection>ccw</turningDirection>
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
       <maxRotVelocity>1500</maxRotVelocity>
-      <motorConstant>8e-05</motorConstant>
-      <momentConstant>0.47</momentConstant>
+      <motorConstant>1.2e-04</motorConstant>
+      <momentConstant>0.22</momentConstant>
       <commandSubTopic>/gazebo/command/motor_speed</commandSubTopic>
       <motorNumber>1</motorNumber>
       <rotorDragCoefficient>0.0000806428</rotorDragCoefficient>
@@ -1750,8 +1757,8 @@
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
       <maxRotVelocity>1500</maxRotVelocity>
-      <motorConstant>8e-05</motorConstant>
-      <momentConstant>0.47</momentConstant>
+      <motorConstant>1.2e-04</motorConstant>
+      <momentConstant>0.22</momentConstant>
       <commandSubTopic>/gazebo/command/motor_speed</commandSubTopic>
       <motorNumber>2</motorNumber>
       <rotorDragCoefficient>0.0000806428</rotorDragCoefficient>
@@ -1767,8 +1774,8 @@
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
       <maxRotVelocity>1500</maxRotVelocity>
-      <motorConstant>8e-05</motorConstant>
-      <momentConstant>0.47</momentConstant>
+      <motorConstant>1.2e-04</motorConstant>
+      <momentConstant>0.22</momentConstant>
       <commandSubTopic>/gazebo/command/motor_speed</commandSubTopic>
       <motorNumber>3</motorNumber>
       <rotorDragCoefficient>0.0000806428</rotorDragCoefficient>
@@ -1780,12 +1787,12 @@
       <robotNamespace></robotNamespace>
       <jointName>rotor_4_joint</jointName>
       <linkName>rotor_4</linkName>
-      <turningDirection>ccw</turningDirection>
+      <turningDirection>cw</turningDirection>
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
       <maxRotVelocity>1500</maxRotVelocity>
-      <motorConstant>8e-05</motorConstant>
-      <momentConstant>0.47</momentConstant>
+      <motorConstant>1.2e-04</motorConstant>
+      <momentConstant>0.22</momentConstant>
       <commandSubTopic>/gazebo/command/motor_speed</commandSubTopic>
       <motorNumber>4</motorNumber>
       <rotorDragCoefficient>0.0000806428</rotorDragCoefficient>
@@ -1797,12 +1804,12 @@
       <robotNamespace></robotNamespace>
       <jointName>rotor_5_joint</jointName>
       <linkName>rotor_5</linkName>
-      <turningDirection>cw</turningDirection>
+      <turningDirection>ccw</turningDirection>
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
       <maxRotVelocity>1500</maxRotVelocity>
-      <motorConstant>8e-05</motorConstant>
-      <momentConstant>0.47</momentConstant>
+      <motorConstant>1.2e-04</motorConstant>
+      <momentConstant>0.22</momentConstant>
       <commandSubTopic>/gazebo/command/motor_speed</commandSubTopic>
       <motorNumber>5</motorNumber>
       <rotorDragCoefficient>0.0000806428</rotorDragCoefficient>
@@ -1818,8 +1825,8 @@
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
       <maxRotVelocity>1500</maxRotVelocity>
-      <motorConstant>8e-05</motorConstant>
-      <momentConstant>0.47</momentConstant>
+      <motorConstant>1.2e-04</motorConstant>
+      <momentConstant>0.22</momentConstant>
       <commandSubTopic>/gazebo/command/motor_speed</commandSubTopic>
       <motorNumber>6</motorNumber>
       <rotorDragCoefficient>0.0000806428</rotorDragCoefficient>
@@ -1835,8 +1842,8 @@
       <timeConstantUp>0.0125</timeConstantUp>
       <timeConstantDown>0.025</timeConstantDown>
       <maxRotVelocity>1500</maxRotVelocity>
-      <motorConstant>8e-05</motorConstant>
-      <momentConstant>0.47</momentConstant>
+      <motorConstant>1.2e-04</motorConstant>
+      <momentConstant>0.22</momentConstant>
       <commandSubTopic>/gazebo/command/motor_speed</commandSubTopic>
       <motorNumber>7</motorNumber>
       <rotorDragCoefficient>0.0000806428</rotorDragCoefficient>
@@ -1968,7 +1975,7 @@
         </channel>
         <channel name="front_tilt">
           <input_index>8</input_index>
-          <input_offset>0.785398</input_offset>
+          <input_offset>0.985398</input_offset>
           <input_scaling>0.785398</input_scaling>
           <zero_position_disarmed>0</zero_position_disarmed>
           <zero_position_armed>0</zero_position_armed>
@@ -1987,7 +1994,7 @@
         </channel>
         <channel name="rear_tilt">
           <input_index>9</input_index>
-          <input_offset>0</input_offset>
+          <input_offset>0.985398</input_offset>
           <input_scaling>0.785398</input_scaling>
           <zero_position_disarmed>0</zero_position_disarmed>
           <zero_position_armed>0</zero_position_armed>
@@ -2004,16 +2011,16 @@
             <errMax>0.2</errMax>
           </joint_control_pid>
         </channel>
-        <channel name="left_elevon">
+        <channel name="front_left_elevon">
           <input_index>10</input_index>
           <input_offset>0</input_offset>
           <input_scaling>1</input_scaling>
           <zero_position_disarmed>0</zero_position_disarmed>
           <zero_position_armed>0</zero_position_armed>
           <joint_control_type>position_kinematic</joint_control_type>
-          <joint_name>left_elevon_joint</joint_name>
+          <joint_name>front_left_elevon_joint</joint_name>
         </channel>
-        <channel name="right_elevon">
+        <channel name="front_right_elevon">
           <input_index>11</input_index>
           <input_offset>0</input_offset>
           <input_scaling>1</input_scaling>
@@ -2022,14 +2029,23 @@
           <joint_control_type>position_kinematic</joint_control_type>
           <joint_name>right_elevon_joint</joint_name>
         </channel>
-        <channel name="elevator">
+        <channel name="rear_left_elevon">
           <input_index>12</input_index>
           <input_offset>0</input_offset>
           <input_scaling>1</input_scaling>
           <zero_position_disarmed>0</zero_position_disarmed>
           <zero_position_armed>0</zero_position_armed>
           <joint_control_type>position_kinematic</joint_control_type>
-          <joint_name>elevator_joint</joint_name>
+          <joint_name>rear_left_elevon_joint</joint_name>
+        </channel>
+        <channel name="rear_right_elevon">
+          <input_index>13</input_index>
+          <input_offset>0</input_offset>
+          <input_scaling>1</input_scaling>
+          <zero_position_disarmed>0</zero_position_disarmed>
+          <zero_position_armed>0</zero_position_armed>
+          <joint_control_type>position_kinematic</joint_control_type>
+          <joint_name>rear_left_elevon_joint</joint_name>
         </channel>
       </control_channels>
     </plugin>
