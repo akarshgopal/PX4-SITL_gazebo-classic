@@ -5,7 +5,7 @@
       <pose>0 0 0 0 0 0</pose>
       <inertial>
         <pose>0 0 0.5 0 0 0</pose>
-        <mass>60</mass>
+        <mass>72</mass>
         <inertia>
           <ixx>10.3</ixx>
           <ixy>0</ixy>
@@ -19,7 +19,7 @@
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <box>
-            <size>2 3 0.3</size>
+            <size>1.4 3 0.3</size>
           </box>
         </geometry>
         <surface>
@@ -102,7 +102,7 @@
 
 
     <link name='front_tilt'>
-      <pose>1.05 0 0.3 1.5707963268 0 0</pose>
+      <pose>1.05 0 0.3 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>0.05</mass>
@@ -118,7 +118,7 @@
       <velocity_decay/>
       <self_collide>0</self_collide>
       <visual name='front_tilt_visual'>
-        <pose>0 0 0 0 0 0</pose>
+        <pose>0 0 0 1.5707963268 0 0</pose>
         <geometry>
           <cylinder>
             <length>2.4</length>
@@ -166,23 +166,6 @@
           <izz>0.0167604</izz>
         </inertia>
       </inertial>
-      <collision name='front_right_wing_collision'>
-        <pose>0 0 0 0 0 0</pose>
-        <geometry>
-          <cylinder>
-            <length>0.035</length>
-            <radius>0.02</radius>
-          </cylinder>
-        </geometry>
-        <surface>
-          <contact>
-            <ode/>
-          </contact>
-          <friction>
-            <ode/>
-          </friction>
-        </surface>
-      </collision>
       <visual name='front_right_wing_visual'>
         <pose>0 0.4 0 0 0 1.5707963268</pose>
         <geometry>
@@ -221,23 +204,6 @@
           <izz>0.0167604</izz>
         </inertia>
       </inertial>
-      <collision name='front_left_wing_collision'>
-        <pose>0 0 0 0 0 0</pose>
-        <geometry>
-          <cylinder>
-            <length>0.035</length>
-            <radius>0.02</radius>
-          </cylinder>
-        </geometry>
-        <surface>
-          <contact>
-            <ode/>
-          </contact>
-          <friction>
-            <ode/>
-          </friction>
-        </surface>
-      </collision>
       <visual name='front_left_wing_visual'>
         <pose>0 1.25 0 0 0 1.5707963268</pose>
         <geometry>
@@ -753,7 +719,7 @@
     </joint>
 
     <link name='rear_tilt'>
-      <pose>-0.7 0 0.8 1.5707963268 0 0</pose>
+      <pose>-0.7 0 0.8 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>0.05</mass>
@@ -769,7 +735,7 @@
       <velocity_decay/>
       <self_collide>0</self_collide>
       <visual name='rear_tilt_visual'>
-        <pose>0 0 0 0 0 0</pose>
+        <pose>0 0 0 1.5707963268 0 0</pose>
         <geometry>
           <cylinder>
             <length>2.4</length>
@@ -1633,8 +1599,8 @@
       <cla_stall>0</cla_stall>
       <cda_stall>-0.9233984055</cda_stall>
       <cma_stall>0</cma_stall>
-      <cp>-0.05 0.3 0.05</cp>
-      <area>0.22</area>
+      <cp>-0.075 0.3 0.05</cp>
+      <area>0.2</area>
       <air_density>1.2041</air_density>
       <forward>1 0 0</forward>
       <upward>0 0 1</upward>
@@ -1656,8 +1622,8 @@
       <cla_stall>0</cla_stall>
       <cda_stall>-0.9233984055</cda_stall>
       <cma_stall>0</cma_stall>
-      <cp>-0.05 -0.3 0.05</cp>
-      <area>0.22</area>
+      <cp>-0.075 -0.3 0.05</cp>
+      <area>0.2</area>
       <air_density>1.2041</air_density>
       <forward>1 0 0</forward>
       <upward>0 0 1</upward>
@@ -1678,8 +1644,8 @@
       <cla_stall>0</cla_stall>
       <cda_stall>-0.9233984055</cda_stall>
       <cma_stall>0</cma_stall>
-      <cp>-0.05 0.3 0.05</cp>
-      <area>0.2</area>
+      <cp>-0.15 0.3 0.05</cp>
+      <area>0.22</area>
       <air_density>1.2041</air_density>
       <forward>1 0 0</forward>
       <upward>0 0 1</upward>
@@ -1700,8 +1666,8 @@
       <cla_stall>0</cla_stall>
       <cda_stall>-0.9233984055</cda_stall>
       <cma_stall>0</cma_stall>
-      <cp>-0.05 -0.3 0.05</cp>
-      <area>0.2</area>
+      <cp>-0.15 -0.3 0.05</cp>
+      <area>0.22</area>
       <air_density>1.2041</air_density>
       <forward>1 0 0</forward>
       <upward>0 0 1</upward>
